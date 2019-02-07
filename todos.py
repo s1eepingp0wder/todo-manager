@@ -26,7 +26,7 @@ manage_option=""
 options = ['write', 'help']
 
 while True:
-    manage_option= input("Type an action or \"help\". >")
+    manage_option= input("Type an action or \"help\". > ")
 
     if manage_option.lower() == "write":
         # Put this in the Manager Module!
