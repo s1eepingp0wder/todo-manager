@@ -40,10 +40,4 @@ def destroy_tasks():
 
 def mark_task():
     list_all()
-    selected_task = int(input("Select a task number: "))-1
-    task_file = open('./todos.txt', 'r')
-    task_list= task_file.readlines(selected_task).replace("False", "True")
-    task_file.write(str(task_list).strip("'[]").replace('\n', ''))
-    task_file.truncate()
-    task_file.close()
-    print("Check your file.")
+    task_file = open('./todos.txt', 'r+')
