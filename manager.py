@@ -14,12 +14,13 @@ class Manager(item.Item):
 
 def list_all():
     task_file = open("./todos.txt", 'r')
-    print("Task List:")
+    print("\n==Task List==\n")
     i = 0
     for line in task_file:
         i += 1
         line_array = line.split(",")
         print(f"{i}. {line_array[0]}:\n\t{line_array[1]}\n\tCreated On: {line_array[2]}\n\tComplete: {line_array[3]}")
+        print("\n")
 
 def create_task():
     now_now= datetime.datetime.now()
@@ -40,4 +41,14 @@ def destroy_tasks():
 
 def mark_task():
     list_all()
-    task_file = open('./todos.txt', 'r+')
+    task_list = open('todos.txt','r').readlines()
+    selected_task = int(input("Select a task by number: "))
+    with open('./todos.txt', 'w') as output:
+        for tasksel, line in enumerate(task_list):
+            # Let's rewrite every line otherwise.
+            if tasksel != selected_task -1:
+                output.write(line)
+            elif tasksel == selected_task-1:
+                line = line.replace("False", "True")
+                output.write(line)
+    print("Task marked complete. Good Job!")

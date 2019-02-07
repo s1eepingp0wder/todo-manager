@@ -10,7 +10,8 @@ def help_screen():
           Type \"write\" to create a task.
           Type \"help\" to view this help screen.
           Type \"quit\" to exit.
-          Type \"destroy\" to kill all tasks.\n""")
+          Type \"destroy\" to kill all tasks.
+          Type \"mark\" to mark a task complete.\n""")
 
 print("""
 *******************
@@ -39,6 +40,13 @@ while True:
     elif manage_option.lower() == "mark":
         manager.mark_task()
     elif manage_option.lower() == "quit":
+        print("""
+        *******************
+        *   GITTER DONE   *
+        *                 *
+        *    good bye!    *
+        *******************
+        """)
         break
         exit(1)
     else:
