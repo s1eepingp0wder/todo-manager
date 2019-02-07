@@ -14,15 +14,15 @@ while True:
     if manage_option.lower() == "write":
         # Let's not learn to run before we learn to walk. We can always clear the file.
         # eval is a thing...?
-            print("Register a dream car\n")
-            current_task_name = input("Task Name: ")
-            current_task_desc = input("Task Description: ")
+        print("Register a dream car\n")
+        current_task_name = input("Task Name: ")
+        current_task_desc = input("Task Description: ")
         current_task = manager.Manager(current_task_name, current_task_desc)
         current_task.write_task()
     elif manage_option.lower() == "help":
         helpScreen()
-    elif manage_option.lower() == "write":
-        
+    elif manage_option.lower() == "read":
+        print("On it.")
     elif manage_option.lower() == "quit":
         break
         exit(1)
