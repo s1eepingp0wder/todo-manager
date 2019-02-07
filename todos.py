@@ -36,8 +36,8 @@ while True:
         manager.list_all()
     elif manage_option.lower() == "destroy":
         manager.destroy_tasks()
-    elif manager_option.lower() == "mark":
-        pass
+    elif manage_option.lower() == "mark":
+        manager.mark_task()
     elif manage_option.lower() == "quit":
         break
         exit(1)
