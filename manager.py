@@ -37,3 +37,6 @@ def destroy_tasks():
     task_file = open("./todos.txt", 'w')
     task_file.write("")
     print("The file should now be empty. Check it.")
+
+def mark_task():
+    pass
