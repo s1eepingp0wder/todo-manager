@@ -1,28 +1,43 @@
 import item
 import manager
+import ast
+import datetime
 
-def helpScreen():
+#print(datetime.datetime.now())
+
+def help_screen():
     print("""\nSelect an option.
-          You can type \"Write\" to write.\n""")
+          Type \"write\" to create a task.
+          Type \"help\" to view this help screen.
+          Type \"quit\" to exit.
+          Type \"destroy\" to kill all tasks.\n""")
 
+print("""
+*******************
+*   GITTER DONE   *
+*                 *
+* repl based to-  *
+* do list.        *
+*******************
+""")
+help_screen()
 manage_option=""
 options = ['write', 'help']
 
 while True:
-    manage_option= input("Type an action or \"help\". ")
+    manage_option= input("Type an action or \"help\". >")
 
     if manage_option.lower() == "write":
-        # Let's not learn to run before we learn to walk. We can always clear the file.
-        # eval is a thing...?
-        print("Register a dream car\n")
-        current_task_name = input("Task Name: ")
-        current_task_desc = input("Task Description: ")
-        current_task = manager.Manager(current_task_name, current_task_desc)
-        current_task.write_task()
+        # Put this in the Manager Module!
+        manager.create_task()
     elif manage_option.lower() == "help":
-        helpScreen()
-    elif manage_option.lower() == "read":
-        print("On it.")
+        help_screen()
+    elif manage_option.lower() == "list":
+        manager.list_all()
+    elif manage_option.lower() == "destroy":
+        manager.destroy_tasks()
+    elif manager_option.lower() == "mark":
+        pass
     elif manage_option.lower() == "quit":
         break
         exit(1)
