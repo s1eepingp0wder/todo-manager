@@ -1,5 +1,6 @@
 import datetime
 import item
+import random
 class Manager(item.Item):
     def __init__(self, task_name, task_description, task_timestamp, task_isfinished):
         item.Item.__init__(self, task_name, task_description, task_timestamp, task_isfinished)
@@ -55,8 +56,9 @@ def mark_task():
                 if tasksel != selected_task -1:
                     output.write(line)
                 elif tasksel == selected_task-1:
-                    line = line.replace("False", "True")
+                    line = line.replace("False", "True ✅")
                     output.write(line)
-        print("Task marked complete. Good Job!")
+        encouragement = ['Proud of You!', 'Good Job!', 'Keep going!', 'You got this!']
+        print(f"Task marked complete. {random.choice(encouragement)}")
     except:
         print("Something went wrong. Perhaps the input was not a number?")
