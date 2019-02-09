@@ -7,7 +7,7 @@ class Manager(item.Item):
     def write_task(self):
         # new_task= [self.task_name, self.task_description, self.task_timestamp, self.task_isfinished]
         f = open("./todos.txt", "a+")
-        f.write(f"{self.task_name},{self.task_description},{self.task_timestamp},{self.task_isfinished}\n")
+        f.write(f"{self.task_name}|{self.task_description}|{self.task_timestamp}|{self.task_isfinished}\n")
         f.close()
         print("Task Written. Type \"list\" to view all tasks.")
 
@@ -18,7 +18,7 @@ def list_all():
     i = 0
     for line in task_file:
         i += 1
-        line_array = line.split(",")
+        line_array = line.split("|")
         print(f"{i}. {line_array[0]}:\n\t{line_array[1]}\n\tCreated On: {line_array[2]}\n\tComplete: {line_array[3]}")
         print("\n")
 
