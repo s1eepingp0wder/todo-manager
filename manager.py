@@ -6,21 +6,26 @@ class Manager(item.Item):
 
     def write_task(self):
         # new_task= [self.task_name, self.task_description, self.task_timestamp, self.task_isfinished]
-        f = open("./todos.txt", "a+")
-        f.write(f"{self.task_name}|{self.task_description}|{self.task_timestamp}|{self.task_isfinished}\n")
-        f.close()
-        print("Task Written. Type \"list\" to view all tasks.")
+        try:
+            f = open("./todos.txt", "a+")
+            f.write(f"{self.task_name}|{self.task_description}|{self.task_timestamp}|{self.task_isfinished}\n")
+            f.close()
+            print("Task Written. Type \"list\" to view all tasks.")
+        except:
+            print("Your to-do list might not be compatible with this version of Gitter Done. Type \"destroy\" to fix your file!")
 
 
 def list_all():
-    task_file = open("./todos.txt", 'r')
-    print("\n==Task List==\n")
-    i = 0
-    for line in task_file:
-        i += 1
-        line_array = line.split("|")
-        print(f"{i}. {line_array[0]}:\n\t{line_array[1]}\n\tCreated On: {line_array[2]}\n\tComplete: {line_array[3]}")
-        print("\n")
+    try:
+        task_file = open("./todos.txt", 'r')
+        print("\n==Task List==\n")
+        i = 0
+        for line in task_file:
+            i += 1
+            line_array = line.split("|")
+            print(f"{i}. {line_array[0]}:\n\t{line_array[1]}\n\tCreated On: {line_array[2]}\n\tComplete: {line_array[3]}\n")
+    except:
+        print("Your to-do list might not be compatible with this version of Gitter Done. Type \"destroy\" to fix your file!")
 
 def create_task():
     now_now= datetime.datetime.now()
@@ -42,13 +47,16 @@ def destroy_tasks():
 def mark_task():
     list_all()
     task_list = open('todos.txt','r').readlines()
-    selected_task = int(input("Select a task by number: "))
-    with open('./todos.txt', 'w') as output:
-        for tasksel, line in enumerate(task_list):
-            # Let's rewrite every line otherwise.
-            if tasksel != selected_task -1:
-                output.write(line)
-            elif tasksel == selected_task-1:
-                line = line.replace("False", "True")
-                output.write(line)
-    print("Task marked complete. Good Job!")
+    try:
+        selected_task = int(input("Select a task by number: "))
+        with open('./todos.txt', 'w') as output:
+            for tasksel, line in enumerate(task_list):
+                # Let's rewrite every line otherwise.
+                if tasksel != selected_task -1:
+                    output.write(line)
+                elif tasksel == selected_task-1:
+                    line = line.replace("False", "True")
+                    output.write(line)
+        print("Task marked complete. Good Job!")
+    except:
+        print("Something went wrong. Perhaps the input was not a number?")

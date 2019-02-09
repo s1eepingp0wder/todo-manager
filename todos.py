@@ -14,12 +14,12 @@ def help_screen():
           Type \"mark\" to mark a task complete.\n""")
 
 print("""
-*******************
-*   GITTER DONE   *
-*                 *
-* repl based to-  *
-* do list.        *
-*******************
+        *******************
+        *   GITTER DONE   *
+        *                 *
+        * repl based to-  *
+        * do list.        *
+        *******************
 """)
 help_screen()
 manage_option=""
