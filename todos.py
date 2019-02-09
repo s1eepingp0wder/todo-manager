@@ -11,7 +11,8 @@ def help_screen():
           Type \"help\" to view this help screen.
           Type \"quit\" to exit.
           Type \"destroy\" to kill all tasks.
-          Type \"mark\" to mark a task complete.\n""")
+          Type \"mark\" to mark a task complete.
+          Type \"list\" to see all your tasks.\n""")
 
 print("""
         *******************
@@ -29,7 +30,6 @@ while True:
     manage_option= input("Type an action or \"help\". > ")
 
     if manage_option.lower() == "write":
-        # Put this in the Manager Module!
         manager.create_task()
     elif manage_option.lower() == "help":
         help_screen()
